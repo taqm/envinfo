@@ -1,0 +1,32 @@
+{
+  "name": "envinfo",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf dist",
+    "release:compile": "webpack",
+    "release:static": "cpx src/*.{html,json} dist/",
+    "build": "npm run clean && run-p release:**"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "cpx": "^1.5.0",
+    "npm-run-all": "^4.0.2",
+    "rimraf": "^2.6.1",
+    "watch": "^1.0.2",
+    "webpack": "^2.4.1"
+  },
+  "dependencies": {
+    "material-ui": "^0.17.4",
+    "material-ui-icons": "^1.0.0-alpha.2",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-router-dom": "^4.1.1",
+    "react-tap-event-plugin": "^2.0.1"
+  }
+}

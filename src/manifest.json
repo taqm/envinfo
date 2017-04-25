@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "Env Information",
+  "description": "show now environment label.",
+  "version": "1.0",
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": ["js/content.bundle.js"]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "js/background.bundle.js"
+    ],
+    "persistent": false
+  },
+  "permissions": [
+    "https://*/*",
+    "http://*/*",
+    "storage"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
