@@ -5,7 +5,7 @@ const path = require('path')
 module.exports = [{
   context: path.join(__dirname, 'src'),
   entry: {
-    options: './js/options.entry.js',
+    options: ['./js/injectPatEvent', './js/options.entry.js'],
     content: './js/content.entry.js',
     background: './js/background.entry.js'
   },
