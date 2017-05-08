@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "Env Information",
-  "description": "show now environment label.",
+  "name": "環境を教えてくれるやつ",
+  "description": "正規表現にマッチしたページの上部に設定したラベルを表示します!",
   "version": "1.0",
   "options_page": "options.html",
   "content_scripts": [
@@ -10,9 +10,16 @@
         "http://*/*",
         "https://*/*"
       ],
-      "js": ["js/content.bundle.js"]
+      "js": [
+        "js/content.bundle.js"
+      ]
     }
   ],
+  "icons": {
+    "16": "icon/icon_16.png",
+    "48": "icon/icon_48.png",
+    "128": "icon/icon_128.png"
+  },
   "background": {
     "scripts": [
       "js/background.bundle.js"

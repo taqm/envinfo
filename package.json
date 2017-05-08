@@ -5,8 +5,15 @@
   "scripts": {
     "clean": "rimraf dist",
     "release:compile": "webpack",
-    "release:static": "cpx 'src/*.html,json,ttf}' dist/",
-    "build": "npm run clean && run-p release:**"
+    "release:html": "cpx src/**/*.html dist",
+    "release:font": "cpx src/font/* dist/font",
+    "release:ext": "cpx ext/** dist",
+    "build": "npm run clean && run-p release:**",
+
+    "watch:compile": "webpack -w",
+    "watch:html": "cpx src/**/*.html dist -w",
+    "watch:ext": "cpx ext/** dist -w",
+    "watch": "npm run build && run-p watch:**"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
