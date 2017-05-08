@@ -128,6 +128,9 @@ export default class OptsTable extends React.Component {
       reader.onload = () => {
         this.setState({importData: reader.result})
       }
+      reader.onerror = err => {
+        console.error(err)
+      }
       reader.readAsText(target);
     })
     input.click()
