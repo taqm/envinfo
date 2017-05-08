@@ -5,7 +5,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "release:compile": "webpack",
-    "release:static": "cpx src/*.{html,json} dist/",
+    "release:static": "cpx 'src/*.html,json,ttf}' dist/",
     "build": "npm run clean && run-p release:**"
   },
   "devDependencies": {
@@ -22,13 +22,19 @@
     "webpack": "^2.4.1"
   },
   "dependencies": {
+    "css-loader": "^0.28.1",
     "material-ui": "^0.17.4",
     "material-ui-icons": "^1.0.0-alpha.2",
+    "prop-types": "^15.5.8",
     "react": "^15.5.4",
+    "react-color": "^2.11.7",
     "react-dom": "^15.5.4",
+    "react-material-ui-form-validator": "^0.3.1",
     "react-redux": "^5.0.4",
     "react-router-dom": "^4.1.1",
     "react-tap-event-plugin": "^2.0.1",
-    "redux": "^3.6.0"
+    "recompose": "^0.23.1",
+    "redux": "^3.6.0",
+    "style-loader": "^0.17.0"
   }
 }

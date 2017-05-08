@@ -1,0 +1,13 @@
+
+.colId {
+  width: 150px;
+}
+
+.colLabel {
+  width: 20%;
+  max-width: 300px;
+}
+
+.colAction {
+  width: 100px;
+}

@@ -3,7 +3,8 @@
 const handler = (req, sender, sendRes) => {
   const data = localStorage.data
   try {
-    sendRes(JSON.parse(data))
+    const map = JSON.parse(data)
+    sendRes(Object.keys(map).map(key => map[key]))
   } catch (e) {
     sendRes([])
   }

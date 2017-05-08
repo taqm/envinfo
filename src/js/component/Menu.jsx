@@ -14,7 +14,6 @@ const Menu = props => (
     anchorOrigin={{horizontal: 'right', vertical: 'top'}}>
     <MenuItem primaryText="インポート" />
     <MenuItem primaryText="エクスポート" />
-    <MenuItem primaryText="スクリプト出力" />
   </IconMenu>
 )
 
