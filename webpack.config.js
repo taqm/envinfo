@@ -7,7 +7,7 @@ module.exports = [{
   entry: {
     options: ['./js/injectTapEvent', './js/options.entry.js'],
     content: './js/content.entry.js',
-    background: './js/background.entry.js'
+    background: ['./js/migration.js', './js/background.entry.js']
   },
   output: {
     path: path.join(__dirname, 'dist/js'),
