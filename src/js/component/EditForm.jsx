@@ -51,10 +51,6 @@ export default class EditForm extends React.Component {
         return false
       }
     })
-
-    ValidatorForm.addValidationRule('isValidColorCode', v => {
-      return !v || v.match(/^#[0-9A-Fa-f]{6}$/)
-    })
   }
 
   render() {
@@ -122,8 +118,8 @@ export default class EditForm extends React.Component {
               floatingLabelText='背景の色'
               defaultValue={this.state.bgColor}
               autoComplete='off'
-              validators={['required', 'isValidColorCode']}
-              errorMessages={['この項目を入力してください', 'カラーコードが不正です']}
+              validators={['required']}
+              errorMessages={['この項目を入力してください']}
               onChange={c => this.setState({bgColor: c})} />
             &nbsp;
             <ColorPicker
@@ -131,8 +127,8 @@ export default class EditForm extends React.Component {
               floatingLabelText='フォントの色'
               defaultValue={this.state.fontColor}
               autoComplete='off'
-              validators={['required', 'isValidColorCode']}
-              errorMessages={['この項目を入力してください', 'カラーコードが不正です']}
+              validators={['required']}
+              errorMessages={['この項目を入力してください']}
               onChange={c => this.setState({fontColor: c})} />
           </div>
           <div>

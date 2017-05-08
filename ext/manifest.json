@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "環境を教えてくれるやつ",
   "description": "正規表現にマッチしたページの上部に設定したラベルを表示します!",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "options_page": "options.html",
   "content_scripts": [
     {

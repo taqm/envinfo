@@ -1,5 +1,5 @@
 
-import React, { PropTypes } from 'react'
+import React from 'react'
 import { ChromePicker } from 'react-color'
 
 const PickerDialog = ({

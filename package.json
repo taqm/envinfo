@@ -9,7 +9,6 @@
     "release:font": "cpx src/font/* dist/font",
     "release:ext": "cpx ext/** dist",
     "build": "npm run clean && run-p release:**",
-
     "watch:compile": "webpack -w",
     "watch:html": "cpx src/**/*.html dist -w",
     "watch:ext": "cpx ext/** dist -w",
@@ -39,6 +38,7 @@
     "react-material-ui-form-validator": "^0.3.1",
     "react-redux": "^5.0.4",
     "react-router-dom": "^4.1.1",
+    "react-sortable-hoc": "^0.6.3",
     "react-tap-event-plugin": "^2.0.1",
     "recompose": "^0.23.1",
     "redux": "^3.6.0",

@@ -22,6 +22,8 @@ import { Link } from 'react-router-dom'
 import mainStyle from 'css/main.css'
 import listStyle from 'css/list.css'
 
+import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
+
 export default class OptsTable extends React.Component {
 
   constructor(props) {
@@ -35,7 +37,7 @@ export default class OptsTable extends React.Component {
   render() {
     const itemMap = getAll()
     const items = Object.keys(itemMap).map(id => itemMap[id])
-    const { deleteTarget, importData } = this.state
+    const { deleteTarget, importData} = this.state
     return (
       <div>
         <ConfirmDialog
