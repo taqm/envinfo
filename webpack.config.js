@@ -1,12 +1,38 @@
 const { resolve } = require('path');
-module.exports = (env) => {
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = () => {
   return {
     entry: {
-      option: resolve('src/option.js'),
+      content: resolve('src/content.tsx'),
+      options: resolve('src/options.tsx'),
     },
     output: {
       filename: '[name].js',
       path: resolve('dist'),
+    },
+    module: {
+      rules: [
+        {
+          test: /\.tsx?$/,
+          exclude: /node_modules/,
+          use: [
+            'babel-loader'
+          ],
+        },
+      ],
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        filename: 'options.html',
+        template: resolve('src/options.html'),
+        chunks: ['options'],
+      }),
+    ],
+    devServer: {
+      contentBase: resolve('static'),
+      open: true,
+      openPage: 'options.html',
     },
   };
 };
