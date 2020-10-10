@@ -5,16 +5,25 @@ module.exports = {
     'airbnb/rules/react',
     'airbnb/hooks',
     'plugin:@typescript-eslint/recommended',
+    'prettier',
+    'prettier/@typescript-eslint',
+    'prettier/react',
   ],
-  plugins: [
-    'react',
-    '@typescript-eslint',
-  ],
+  plugins: ['react', '@typescript-eslint'],
   settings: {
-    'import/resolver': 'webpack',
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+        webpack: '',
+      },
+    },
   },
   rules: {
-    'import/extensions': ['error', 'ignorePackages', { ts: 'never', tsx: 'never' }],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      { ts: 'never', tsx: 'never' },
+    ],
     'import/no-extraneous-dependencies': [
       'error',
       { devDependencies: ['**/*.test.ts?(x)', '**/*.stories.tsx'] },

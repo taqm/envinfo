@@ -16,11 +16,12 @@ module.exports = () => {
         {
           test: /\.tsx?$/,
           exclude: /node_modules/,
-          use: [
-            'babel-loader'
-          ],
+          use: ['babel-loader'],
         },
       ],
+    },
+    resolve: {
+      extensions: ['.js', '.ts', '.tsx'],
     },
     plugins: [
       new HtmlWebpackPlugin({
