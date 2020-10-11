@@ -1,6 +1,13 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
-import OptionsPage from './components/OptionsPage';
+import ListPage from './components/ListPage';
 
-ReactDOM.render(<OptionsPage />, document.getElementById('app'));
+ReactDOM.render(
+  <>
+    <CssBaseline />
+    <ListPage />
+  </>,
+  document.getElementById('app'),
+);
