@@ -1,6 +1,6 @@
+import CssBaseline from '@material-ui/core/CssBaseline';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import CssBaseline from '@material-ui/core/CssBaseline';
 
 import ListPage from './components/ListPage';
 
