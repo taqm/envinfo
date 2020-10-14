@@ -26,8 +26,24 @@ Main.args = {
   items: [
     {
       id: 'test1',
-      pattern: '.*',
+      pattern: '.*.local',
+      fontColor: '#fff',
+      bgColor: '#f00',
       label: 'test1',
+    },
+    {
+      id: 'test2',
+      pattern: '.*.staging',
+      fontColor: '#fff',
+      bgColor: '#0f0',
+      label: 'test2',
+    },
+    {
+      id: 'test3',
+      pattern: '.*.production',
+      fontColor: '#fff',
+      bgColor: '#00f',
+      label: 'test3',
     },
   ],
 };

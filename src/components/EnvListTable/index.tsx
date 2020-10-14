@@ -5,9 +5,13 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import * as React from 'react';
 
+import InfoLabel from '../InfoLabel';
+
 type EnvItem = {
   id: string;
   label: string;
+  fontColor: string;
+  bgColor: string;
   pattern: string;
 };
 
@@ -32,7 +36,14 @@ const EnvListTable: React.FC<Props> = (props) => {
           <TableRow key={item.id}>
             <TableCell>{item.id}</TableCell>
             <TableCell>{item.pattern}</TableCell>
-            <TableCell>{item.label}</TableCell>
+            <TableCell>
+              <InfoLabel
+                text={item.label}
+                fontColor={item.fontColor}
+                bgColor={item.bgColor}
+                size="medium"
+              />
+            </TableCell>
             <TableCell />
           </TableRow>
         ))}
