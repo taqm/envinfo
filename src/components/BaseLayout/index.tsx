@@ -8,12 +8,12 @@ type Props = {
   header: JSX.Element;
 };
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   content: {
-    margin: '24px auto 0',
     height: '100hv',
+    margin: `${theme.spacing(4)}px auto 0`,
   },
-});
+}));
 
 const BaseLayout: React.FC<Props> = ({ header, children }) => {
   const classes = useStyles();

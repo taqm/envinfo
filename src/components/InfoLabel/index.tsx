@@ -23,13 +23,13 @@ const useStyles = makeStyles(() => ({
     fontWeight: 'bold',
   }),
   large: {
-    fontSize: 32,
+    fontSize: '2.2em',
     borderRadius: 8,
-    padding: '4px 8px',
+    padding: `4px 8px`,
   },
   medium: {
-    fontSize: 24,
-    borderRadius: 8,
+    fontSize: '1.5em',
+    borderRadius: 4,
     padding: '2px 4px',
   },
 }));
