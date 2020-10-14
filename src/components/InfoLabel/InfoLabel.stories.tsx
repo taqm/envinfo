@@ -3,7 +3,8 @@ import * as React from 'react';
 
 import InfoLabel from './index';
 
-const meta: Meta = {
+type Args = React.ComponentProps<typeof InfoLabel>;
+const meta: Meta<Args> = {
   title: 'InfoLabel',
   component: InfoLabel,
   argTypes: {
@@ -14,7 +15,6 @@ const meta: Meta = {
 };
 export default meta;
 
-type Args = React.ComponentProps<typeof InfoLabel>;
 const Template: Story<Args> = (props) => {
   return <InfoLabel {...props} />;
 };
