@@ -7,7 +7,7 @@ import * as React from 'react';
 
 import InfoLabel from '../InfoLabel';
 
-type EnvItem = {
+export type EnvItem = {
   id: string;
   label: string;
   fontColor: string;

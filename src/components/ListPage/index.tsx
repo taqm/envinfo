@@ -1,13 +1,25 @@
+import Fab from '@material-ui/core/Fab';
+import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
 import TableContainer from '@material-ui/core/TableContainer';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import AddIcon from '@material-ui/icons/Add';
 import * as React from 'react';
 
 import BaseLayout from '../BaseLayout';
-import EnvListTable from '../EnvListTable';
+import EnvListTable, { EnvItem } from '../EnvListTable';
 
-const useItems = () => {
+const useStyle = makeStyles((theme) => ({
+  addButtonArea: {
+    marginTop: theme.spacing(2),
+    position: 'sticky',
+    bottom: theme.spacing(2),
+  },
+}));
+
+const useItems = (): EnvItem[] => {
   return [];
 };
 
@@ -17,16 +29,36 @@ const Header = () => (
   </Toolbar>
 );
 
-const ListPage: React.FC = () => {
-  const items = useItems();
+type Props = {
+  items: EnvItem[];
+  onAddClick: () => void;
+};
+
+export const Presenter: React.FC<Props> = (props) => {
+  const classes = useStyle();
   return (
     <BaseLayout header={<Header />}>
       <TableContainer component={Paper}>
-        <EnvListTable items={items} />
+        <EnvListTable items={props.items} />
       </TableContainer>
+
+      <Grid container justify="center" className={classes.addButtonArea}>
+        <Fab color="primary" aria-label="add">
+          <AddIcon />
+        </Fab>
+      </Grid>
     </BaseLayout>
   );
 };
+Presenter.displayName = 'ListPagePresenter';
 
-ListPage.displayName = 'ListPage';
-export default ListPage;
+const Container = () => {
+  const items = useItems();
+  const onAddClick = () => {
+    // TODO
+  };
+  return <Presenter items={items} onAddClick={onAddClick} />;
+};
+
+Container.displayName = 'ListPageContainer';
+export default Container;
