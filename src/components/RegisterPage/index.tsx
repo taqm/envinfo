@@ -10,11 +10,11 @@ const Presenter: React.FC = () => {
     </BaseLayout>
   );
 };
-Presenter.displayName = 'RegisterFormPagePresenter';
+Presenter.displayName = 'RegisterPagePresenter';
 
 const Container: React.FC = () => {
   return <Presenter />;
 };
-Container.displayName = 'RegisterFormPageContainer';
+Container.displayName = 'RegisterPageContainer';
 
 export default Container;
