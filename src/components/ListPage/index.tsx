@@ -7,6 +7,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import AddIcon from '@material-ui/icons/Add';
 import * as React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import BaseLayout from '../BaseLayout';
 import EnvListTable, { EnvItem } from '../EnvListTable';
@@ -34,16 +35,16 @@ type Props = {
   onAddClick: () => void;
 };
 
-export const Presenter: React.FC<Props> = (props) => {
+export const Presenter: React.FC<Props> = ({ items, onAddClick }) => {
   const classes = useStyle();
   return (
     <BaseLayout header={<Header />}>
       <TableContainer component={Paper}>
-        <EnvListTable items={props.items} />
+        <EnvListTable items={items} />
       </TableContainer>
 
       <Grid container justify="center" className={classes.addButtonArea}>
-        <Fab color="primary" aria-label="add">
+        <Fab color="primary" aria-label="add" onClick={onAddClick}>
           <AddIcon />
         </Fab>
       </Grid>
@@ -54,9 +55,10 @@ Presenter.displayName = 'ListPagePresenter';
 
 const Container = () => {
   const items = useItems();
-  const onAddClick = () => {
-    // TODO
-  };
+  const hist = useHistory();
+  const onAddClick = React.useCallback(() => {
+    hist.push('/items/new');
+  }, [hist]);
   return <Presenter items={items} onAddClick={onAddClick} />;
 };
 

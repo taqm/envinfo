@@ -21,7 +21,9 @@ const BaseLayout: React.FC<Props> = ({ header, children }) => {
     <>
       <AppBar position="static">{header}</AppBar>
       <Container maxWidth="lg">
-        <Typography className={classes.content}>{children}</Typography>
+        <Typography component="div" className={classes.content}>
+          {children}
+        </Typography>
       </Container>
     </>
   );
