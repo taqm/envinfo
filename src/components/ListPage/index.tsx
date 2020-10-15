@@ -3,14 +3,13 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import TableContainer from '@material-ui/core/TableContainer';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import AddIcon from '@material-ui/icons/Add';
 import * as React from 'react';
 import { useHistory } from 'react-router-dom';
 
 import BaseLayout from '../BaseLayout';
 import EnvListTable, { EnvItem } from '../EnvListTable';
+import MyToolbar from '../MyToolbar';
 
 const useStyle = makeStyles((theme) => ({
   addButtonArea: {
@@ -24,12 +23,6 @@ const useItems = (): EnvItem[] => {
   return [];
 };
 
-const Header = () => (
-  <Toolbar>
-    <Typography variant="h6">一覧</Typography>
-  </Toolbar>
-);
-
 type Props = {
   items: EnvItem[];
   onAddClick: () => void;
@@ -38,7 +31,7 @@ type Props = {
 export const Presenter: React.FC<Props> = ({ items, onAddClick }) => {
   const classes = useStyle();
   return (
-    <BaseLayout header={<Header />}>
+    <BaseLayout header={<MyToolbar title="一覧" />}>
       <TableContainer component={Paper}>
         <EnvListTable items={items} />
       </TableContainer>
