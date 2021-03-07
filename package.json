@@ -1,4 +1,9 @@
 {
   "private": true,
-  "scripts": {}
+  "scripts": {
+    "dev": "snowpack dev"
+  },
+  "devDependencies": {
+    "snowpack": "^3.0.13"
+  }
 }
