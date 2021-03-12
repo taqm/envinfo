@@ -17,6 +17,7 @@ const liveServer = require('live-server');
     entryPoints: ['./src/options.tsx'],
     bundle: true,
     watch: true,
+    treeShaking: 'ignore-annotations',
   });
 
   fs.copySync('static', 'build');

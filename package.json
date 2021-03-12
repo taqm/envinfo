@@ -1,8 +1,10 @@
 {
   "private": true,
   "scripts": {
+    "clean": "rm -rf build",
+    "predev": "npm run clean",
     "dev": "node scripts/serve.js",
-    "prebuild": "rm -rf build",
+    "prebuild": "npm run clean",
     "build": "node scripts/build.js"
   },
   "devDependencies": {
@@ -16,6 +18,10 @@
     "typescript": "^4.2.3"
   },
   "dependencies": {
+    "@chakra-ui/react": "^1.3.4",
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "^11.1.5",
+    "framer-motion": "^3.10.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   }

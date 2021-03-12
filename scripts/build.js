@@ -11,4 +11,5 @@ build({
   sourcemap: false,
   bundle: true,
   entryPoints: ['./src/options.tsx'],
+  treeShaking: 'ignore-annotations',
 });
