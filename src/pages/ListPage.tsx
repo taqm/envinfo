@@ -1,12 +1,11 @@
 import * as React from 'react';
-import Header from '../components/Header';
+import MainLayout from '../components/MainLayout';
 
 const ListPage: React.VFC = () => {
   return (
-    <>
-      <Header />
-      <h1>Hello List Page</h1>
-    </>
+    <MainLayout>
+      <h1>List Page</h1>
+    </MainLayout>
   );
 };
 
