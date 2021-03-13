@@ -1,7 +1,13 @@
 import * as React from 'react';
+import Header from '../components/Header';
 
 const ListPage: React.VFC = () => {
-  return <h1>Hello List Page</h1>;
+  return (
+    <>
+      <Header />
+      <h1>Hello List Page</h1>
+    </>
+  );
 };
 
 ListPage.displayName = 'ListPage';
