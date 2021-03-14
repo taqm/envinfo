@@ -15,6 +15,7 @@ import { EnvDataItem } from '../domains/EnvDataItem';
 type Props = {
   items: ReadonlyArray<EnvDataItem>;
   checkedItemIds: ReadonlySet<string>;
+  onItemClick: (id: string) => void;
   onItemChecked: (id: string) => void;
   onItemUnchecked: (id: string) => void;
   onBatchChecked: () => void;
@@ -24,16 +25,27 @@ type Props = {
 type RowProps = {
   item: EnvDataItem;
   isChecked: boolean;
+  onClick: () => void;
   onCheckboxChange: React.ChangeEventHandler<HTMLInputElement>;
 };
 
-const Row: React.VFC<RowProps> = ({ item, isChecked, onCheckboxChange }) => {
+const Row: React.VFC<RowProps> = ({
+  item,
+  isChecked,
+  onClick,
+  onCheckboxChange,
+}) => {
+  const onCheckboxClick: React.MouseEventHandler<HTMLDivElement> = (ev) => {
+    ev.stopPropagation();
+  };
+
   return (
     <Tr
       key={item.id}
       cursor="pointer"
       bg={isChecked ? 'green.50' : undefined}
       _hover={{ boxShadow: 'lg' }}
+      onClick={onClick}
     >
       <Td>
         <Flex alignItems="center">
@@ -41,6 +53,7 @@ const Row: React.VFC<RowProps> = ({ item, isChecked, onCheckboxChange }) => {
             size="lg"
             isChecked={isChecked}
             onChange={onCheckboxChange}
+            onClick={onCheckboxClick}
           />
         </Flex>
       </Td>
@@ -54,6 +67,7 @@ const Row: React.VFC<RowProps> = ({ item, isChecked, onCheckboxChange }) => {
 const EnvItemTable: React.VFC<Props> = ({
   items,
   checkedItemIds,
+  onItemClick,
   onItemChecked,
   onItemUnchecked,
   onBatchChecked,
@@ -63,6 +77,10 @@ const EnvItemTable: React.VFC<Props> = ({
     () => items.length === checkedItemIds.size,
     [items, checkedItemIds],
   );
+
+  const handleRowClick = (id: string) => () => {
+    onItemClick(id);
+  };
 
   const handleCheckboxChange = (id: string) => (
     ev: React.ChangeEvent<HTMLInputElement>,
@@ -95,6 +113,7 @@ const EnvItemTable: React.VFC<Props> = ({
             key={item.id}
             item={item}
             isChecked={checkedItemIds.has(item.id)}
+            onClick={handleRowClick(item.id)}
             onCheckboxChange={handleCheckboxChange(item.id)}
           />
         ))}

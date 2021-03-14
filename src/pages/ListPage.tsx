@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useHistory } from 'react-router';
 import Card from '../components/Card';
 import EnvItemTable from '../components/EnvItemTable';
 
@@ -20,6 +21,8 @@ const genRandomItems = (): EnvDataItem[] => {
 };
 
 const ListPage: React.VFC = () => {
+  const hist = useHistory();
+
   const items: ReadonlyArray<EnvDataItem> = React.useMemo(genRandomItems, []);
   const [checkedItemIds, setCheckedItemIds] = React.useState<
     ReadonlySet<string>
@@ -55,12 +58,17 @@ const ListPage: React.VFC = () => {
     [items, setCheckedItemIds],
   );
 
+  const onItemClick = React.useCallback((id: string) => {
+    hist.push(`/items/${id}`);
+  }, []);
+
   return (
     <MainLayout>
       <Card>
         <EnvItemTable
           items={items}
           checkedItemIds={checkedItemIds}
+          onItemClick={onItemClick}
           onItemChecked={onItemChecked}
           onItemUnchecked={onItemUnchecked}
           onBatchChecked={onBatchChecked}

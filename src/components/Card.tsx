@@ -1,13 +1,14 @@
-import { Box, ContainerProps } from '@chakra-ui/react';
+import { Box, BoxProps } from '@chakra-ui/react';
 import * as React from 'react';
 
 type Props = {
   children: React.ReactNode;
-  width?: ContainerProps['w'];
+  w?: BoxProps['w'];
+  mt?: BoxProps['mt'];
 };
 
-const Card: React.VFC<Props> = ({ width = '100%', children }) => (
-  <Box bg="white" w={width} rounded="md" p="4" boxShadow="base">
+const Card: React.VFC<Props> = ({ w = '100%', mt, children }) => (
+  <Box bg="white" w={w} mt={mt} rounded="md" p="4" boxShadow="base">
     {children}
   </Box>
 );
