@@ -1,17 +1,13 @@
-import { Box, BoxProps } from '@chakra-ui/react';
-import * as React from 'react';
+import { chakra } from '@chakra-ui/react';
 
-type Props = {
-  children: React.ReactNode;
-  w?: BoxProps['w'];
-  mt?: BoxProps['mt'];
-};
-
-const Card: React.VFC<Props> = ({ w = '100%', mt, children }) => (
-  <Box bg="white" w={w} mt={mt} rounded="md" p="4" boxShadow="base">
-    {children}
-  </Box>
-);
+const Card = chakra('div', {
+  baseStyle: {
+    shadow: 'base',
+    rounded: 'lg',
+    bg: 'white',
+    p: 4,
+  },
+});
 
 Card.displayName = 'Card';
 
