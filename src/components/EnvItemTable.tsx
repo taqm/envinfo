@@ -11,6 +11,7 @@ import {
 import * as React from 'react';
 
 import { EnvDataItem } from '../domains/EnvDataItem';
+import EnvInfoLabel from './EnvInfoLabel';
 
 type Props = {
   items: ReadonlyArray<EnvDataItem>;
@@ -59,7 +60,14 @@ const Row: React.VFC<RowProps> = ({
       </Td>
       <Td>{item.id}</Td>
       <Td>{item.pattern}</Td>
-      <Td>{item.label}</Td>
+      <Td>
+        <EnvInfoLabel
+          text={item.label}
+          fontColor={item.fontColor}
+          bgColor={item.bgColor}
+          size="small"
+        />
+      </Td>
     </Tr>
   );
 };

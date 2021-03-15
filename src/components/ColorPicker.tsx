@@ -18,7 +18,7 @@ const ColorPicker: React.VFC<Props> = ({ value, onChange }) => {
   };
 
   return (
-    <Popover placement="auto-start">
+    <Popover placement="top-start">
       <PopoverTrigger>
         <Input readOnly value={value} />
       </PopoverTrigger>
